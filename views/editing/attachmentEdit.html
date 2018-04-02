@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+
+    <title>SanFrancisco311 - Incidents</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.23/dijit/themes/nihilo/nihilo.css" />
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.23/esri/css/esri.css" />
+    <style>
+        html,
+        body,
+        #mainWindow {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #header {
+            border: solid 2px #462d44;
+            background: #fff;
+            color: #444;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            font-family: sans-serif;
+            font-size: 1.1em;
+            padding-left: 20px;
+        }
+
+        #map {
+            padding: 1px;
+            border: solid 2px #444;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        #rightPane {
+            border: none;
+            padding: 0;
+            width: 228px;
+        }
+
+        .templatePicker {
+            border: solid 2px #444;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="width:100%;height:100%;">
+        <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+            <span>Draw:
+                <br />
+            </span>
+            <button data-dojo-type="dijit/form/Button">add a Point</button>
+            <button data-dojo-type="dijit/form/Button">Multi Point</button>
+            <button data-dojo-type="dijit/form/Button">Line</button>
+            <button data-dojo-type="dijit/form/Button">Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Polygon</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
+
+            <button data-dojo-type="dijit/form/Button">Arrow</button>
+            <button data-dojo-type="dijit/form/Button">Triangle</button>
+            <button data-dojo-type="dijit/form/Button">Circle</button>
+            <button data-dojo-type="dijit/form/Button">Ellipse</button>
+
+            <span>Specify options then click a graphic to edit the shape. Click outside the graphic to deactivate the toolbar.</span>
+            <br />
+          
+        </div>
+        <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+        <div id="rightPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'">
+            <div id="templatePickerDiv"></div>
+        </div>
+        <!--  <div id="footer" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
+            Click point to view/create/delete attachments.
+        </div> -->
+    </div>
+
+
+     <script src="../../config/editing/attachmentEditingConfig.js"></script>
+    <script src="http://localhost:8080/arcgis_js_api/3.23/init.js"></script>
+    <!--  <script src="http://localhost:8080/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script>
+        require(["dojo/parser", "dijit/form/Button",
+            "dijit/form/ToggleButton",
+            "dijit/form/DropDownButton",
+            "dijit/CheckedMenuItem",
+            "dijit/layout/BorderContainer",
+            "dijit/layout/ContentPane",
+            "dojo/domReady!"], function (parser) {
+                console.log("html js ")
+                parser.parse();
+            });
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+      "module": "amd",
+      "noImplicitAny": true,
+      "sourceMap": true,  
+      "target": "es5",
+      "experimentalDecorators": true,
+      "preserveConstEnums": true,
+      "suppressImplicitAnyIndexErrors": true
+    },
+    "files": [
+      "./src/tdt/TDTLayer.ts",
+      "./src/main.ts",
+      "./src/dynamicLayers/dynamicLayers.ts",
+      "./src/dynamicLayers/classBreakRender.ts",
+      "./src/editing/attachmentEdit.ts",
+      "./src/dojoTest/Scratch.ts",
+      "./src/layout/layoutTest.ts",
+      "./src/layout/containerLayout.ts"
+    ]
+  }

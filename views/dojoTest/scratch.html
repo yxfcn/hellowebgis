@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://localhost:8080/dojo/dijit/themes/claro/claro.css"/>
+    <script>
+        var siteOrigin = location.origin;
+        var prjRelatePath = "/webgis/ESRI/V323/hellowebgis"
+        var rootPath = siteOrigin + prjRelatePath;
+        window.dojoConfig = {
+            deps: ["src/dojoTest/Scratch"],
+            packages: [
+                {
+                    name: "src",
+                    location: rootPath + "/src"
+                }
+            ],
+            parseOnLoad: false
+        }
+    </script>
+    <!-- <script src="http://localhost:8080/dojo/dojo/dojo.js"></script> -->
+    <script src="http://localhost:8080/arcgis_js_api/3.23/init.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="claro">
+        <span data-dojo-type="FancyCounter">press me</span>
+</body>
+
+</html>

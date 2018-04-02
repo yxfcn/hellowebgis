@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+  <title>Basemap gallery</title>
+  <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.23/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.23/esri/css/esri.css">
+  <style>
+    html,
+    body,#map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+#multiPointDiv{
+  position:absolute;
+  left:5%;
+  top:2%;
+}
+  </style>
+
+  <script src="./config/config.js"></script>
+  <script src="http://localhost:8080/arcgis_js_api/3.23/init.js"></script>
+
+</head>
+
+<body class="claro">
+
+  <div id="map"></div>
+  <div id="multiPointDiv">
+    <button id="MultiPoint">创建多点</button>
+  </div>
+
+
+</body>
+
+</html>

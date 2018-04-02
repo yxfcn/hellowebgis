@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <style>
+            html,
+            body,
+            #mainWindow {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+    
+            #header {
+                border: solid 2px #462d44;
+                background: #fff;
+                color: #444;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                font-family: sans-serif;
+                font-size: 1.1em;
+                padding-left: 20px;
+            }
+    
+            #map {
+                padding: 1px;
+                border: solid 2px #444;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+            }
+    
+            #rightPane {
+                border: none;
+                padding: 0;
+                width: 228px;
+            }
+    
+            .templatePicker {
+                border: solid 2px #444;
+            }
+        </style>
+    
+    <script src="http://localhost:8080/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script type="text/javascript">
+        require(["dojo/parser", "dijit/form/Button","dijit/layout/BorderContainer", "dijit/layout/ContentPane","dojo/domReady!"],
+        function(parser){
+            parser.parse();
+        });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="width:100%;height:100%;">
+        <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+            <span>Draw:
+                <br />
+            </span>
+            <button data-dojo-type="dijit/form/Button">add a Point</button>
+            <button data-dojo-type="dijit/form/Button">Multi Point</button>
+            <button data-dojo-type="dijit/form/Button">Line</button>
+            <button data-dojo-type="dijit/form/Button">Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Polygon</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
+
+            <button data-dojo-type="dijit/form/Button">Arrow</button>
+            <button data-dojo-type="dijit/form/Button">Triangle</button>
+            <button data-dojo-type="dijit/form/Button">Circle</button>
+            <button data-dojo-type="dijit/form/Button">Ellipse</button>
+
+            <span>Specify options then click a graphic to edit the shape. Click outside the graphic to deactivate the toolbar.</span>
+            <br />
+            <div id="tool_move" data-dojo-type="dijit/form/ToggleButton" data-dojo-props="checked:'true', iconClass:'dijitCheckBoxIcon'">Move</div>
+            <div id="tool_vertices" data-dojo-type="dijit/form/ToggleButton" data-dojo-props="checked:'true', iconClass:'dijitCheckBoxIcon'">Edit Vertices</div>
+            <div id="tool_scale" data-dojo-type="dijit/form/ToggleButton" data-dojo-props="checked:'true', iconClass:'dijitCheckBoxIcon'">Scale</div>
+            <div id="tool_rotate" data-dojo-type="dijit/form/ToggleButton" data-dojo-props="checked:'true', iconClass:'dijitCheckBoxIcon'">Rotate</div>
+            <button data-dojo-type="dijit/form/DropDownButton" id="options" data-dojo-props="value:'options'">
+                <span>Options</span>
+                <div data-dojo-type="dijit/Menu" id="optionsMenu">
+                    <div id="vtx_ca" data-dojo-type="dijit/CheckedMenuItem" data-dojo-props="checked:'true'">Allow Add Vertices</div>
+                    <div id="vtx_cd" data-dojo-type="dijit/CheckedMenuItem" data-dojo-props="checked:'true'">Allow Delete Vertices</div>
+                    <div id="uniform_scaling" data-dojo-type="dijit/CheckedMenuItem" data-dojo-props="checked:'true'">Uniform Scaling when Resizing</div>
+                </div>
+            </button>
+        </div>
+        <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+        <div id="rightPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'">
+            <div id="templatePickerDiv"></div>
+        </div>
+        <!--  <div id="footer" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
+                Click point to view/create/delete attachments.
+            </div> -->
+    </div>
+</body>
+
+</html>

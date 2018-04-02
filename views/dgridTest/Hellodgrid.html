@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello dgrid!</title>
+    <link rel="stylesheet" href="../../dgrid/css/dgrid.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="grid"></div>
+    <!-- this configuration assumes that the dgrid package is located
+         in the filesystem as a sibling to the dojo package -->
+    <script src="../../dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script>
+        require(['dojo/_base/declare',
+            'dgrid/Grid',
+            'dgrid/Keyboard',
+            'dgrid/Selection',
+            'dojo/domReady!'], function (declare, Grid, Keyboard, Selection) {
+
+                var data = [
+                    { first: 'Bob', last: 'Barker', age: 89 },
+                    { first: 'Vanna', last: 'White', age: 55 },
+                    { first: 'Pat', last: 'Sajak', age: 65 }
+                ];
+                // Create a new constructor by mixing in the components
+                var CustomGrid = declare([Grid, Keyboard, Selection]);
+
+                // Now, create an instance of our custom grid which
+                // have the features we added!
+                var grid = new CustomGrid({
+                    columns: {
+                        first: 'First Name',
+                        last: 'Last Name',
+                        age: 'Age'
+                    },
+                    // for Selection; only select a single row at a time
+                    selectionMode: 'single',
+                    // for Keyboard; allow only row-level keyboard navigation
+                    cellNavigation: false
+                }, 'grid');
+                grid.renderArray(data);
+
+                grid.on('dgrid-select', function (event) {
+                    // Report the item from the selected row to the console.
+                    console.log('Row selected: ', event.rows[0].data);
+                });
+                grid.on('dgrid-deselect', function (event) {
+                    console.log('Row de-selected: ', event.rows[0].data);
+                });
+                grid.on('.dgrid-row:click', function (event) {
+                    var row = grid.row(event);
+                    console.log('Row clicked:', row.id);
+                });
+            });
+    </script>
+</body>
+
+</html>
